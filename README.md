@@ -28,9 +28,9 @@ $ ./console.py
 
 ## Authors
 
-*Yeff Espinoza,[GitHub Pages](https://github.com/KevinYeff)
+*Yeff Espinoza, [GitHub](https://github.com/KevinYeff)
 
-*Alex Nuñez,[GitHub Pages](https://github.com/AlExito745)
+*Alex Nuñez, [GitHub](https://github.com/AlExito745)
 
 # License
 
