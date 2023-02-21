@@ -7,6 +7,7 @@
 
 import uuid
 from datetime import datetime
+import models
 
 
 class BaseModel:
@@ -16,7 +17,6 @@ class BaseModel:
     def __init__(self, id="", created_at=None, updated_at=None):
         """Constructor new instances of class.
         """
-        
         self.id = str(uuid.uuid4())
         self.created_at = datetime.now()
         self.updated_at = datetime.now()
@@ -24,20 +24,17 @@ class BaseModel:
     def __str__(self):
         """String representation of the instances.
         """
-        
-        str = "[BaseModel] ({}) {}".format(self.id, self.__dict__)
+        str = "[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__)
         return(str)
 
     def save(self):
         """Updates the public instance attributes.
         """
-        
         self.updated_at = datetime.now()
 
     def to_dict(self):
         """Returns a dictionary containing all keys/values.
         """
-        
         n_dict = self.__dict__.copy()
         if "created_at" in n_dict:
             n_dict["created_at"] = n_dict["created_at"].isoformat()
