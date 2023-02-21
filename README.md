@@ -1,15 +1,15 @@
-#**AirBnB clone - The console**
+# **AirBnB clone - The console**
 
-##About the project
+## About the project
 
-##How to start it
+## How to start it
 
-##How to use it
+## How to use it
 
-##Examples
+## Examples
 
-##Authors
+## Authors
+
 *[Yeff Espinoza](https://github.com/KevinYeff)
 
 *[Alex Nuñez](https://github.com/AlExito745)
-
