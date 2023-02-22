@@ -1,14 +1,51 @@
 #!/usr/bin/python3
-from models.base_model import BaseModel
+# test_base_model.py
+# Alex Nuñez <5694@holbertonstudents.com>
+# Yeff Espinoza <5153@holbertonstudents.com>
+"""Test for class BaseModel."""
 
-my_model = BaseModel()
-my_model.name = "My First Model"
-my_model.my_number = 89
-print(my_model)
-my_model.save()
-print(my_model)
-my_model_json = my_model.to_dict()
-print(my_model_json)
-print("JSON of my_model:")
-for key in my_model_json.keys():
-    print("\t{}: ({}) - {}".format(key, type(my_model_json[key]), my_model_json[key]))
+
+import unittest
+import models
+
+
+class TestBaseModelDocs(unittest.TestCase):
+    """Class for testing BaseModel docs."""
+
+    def test_doc_module(self):
+        """Test module documentation."""
+        actual = models.base_model.__doc__
+        self.assertIsNotNone(actual)
+
+    def test_doc_class(self):
+        """Test class documentation."""
+        actual = models.base_model.BaseModel.__doc__
+        self.assertIsNotNone(actual)
+
+    def test_doc_save(self):
+        """Test method save documentation."""
+        actual = models.base_model.BaseModel.save.__doc__
+        self.assertIsNotNone(actual)
+
+    def test_doc_to_dict(self):
+        """Test method to_dict documentation."""
+        actual = models.base_model.BaseModel.to_dict.__doc__
+        self.assertIsNotNone(actual)
+
+    def test_to_dict(self):
+        """Test return to_dict."""
+        expect = models.base_model.BaseModel.to_dict()
+        self.assertIs(type(expect), dict)
+
+    def test_doc__init__(self):
+        """Test method __init__ documentation."""
+        actual = models.base_model.BaseModel.__init__.__doc__
+        self.assertIsNotNone(actual)
+
+    def test_id_value(self):
+        """Test value type."""
+        expect = models.base_model.BaseModel.self.id
+        self.assertIs(type(expect), str)
+
+if __name__ == '__main__':
+    unittest.main
