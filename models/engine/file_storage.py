@@ -6,7 +6,7 @@
 """
 
 import json
-import os
+import os.path
 
 
 class FileStorage:
@@ -36,9 +36,8 @@ class FileStorage:
         with open(f_in, "w", encoding="utf-8") as f_out:
             json.dump(d, f_out)
 
-   def reload(self):
-        """Deserializes the JSON file to __objects.
-        """
+    def reload(self):
+        """Deserializes the JSON file to __objects."""
         f_in = self.__file_path
         if os.path.exists(f_in):
             with open(f_in, "r", encoding="utf-8") as f_out:
