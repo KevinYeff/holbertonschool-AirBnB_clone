@@ -36,11 +36,13 @@ class FileStorage:
         with open(f_in, "w", encoding="utf-8") as f_out:
             json.dump(d, f_out)
 
-    def reload(self):
+   def reload(self):
         """Deserializes the JSON file to __objects.
         """
         f_in = self.__file_path
-        d = self.__objects
         if os.path.exists(f_in):
             with open(f_in, "r", encoding="utf-8") as f_out:
-                d = json.load(f_out)
+                obj_dict = json.load(f_out)
+                for value in obj_dict.values():
+                    cls = value["__class__"]
+                    self.new(eval(cls)(**value))
