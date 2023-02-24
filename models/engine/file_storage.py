@@ -50,7 +50,7 @@ class FileStorage():
             obj (any):
                 object to be stored in __objects dictionary
         """
-        key = "{}.{}".format(type(obj).__name__, obj.id)
+        key = f"{obj.__class__.__name__}.{obj.id}"
         self.__objects[key] = obj.to_dict()
 
     def save(self):
