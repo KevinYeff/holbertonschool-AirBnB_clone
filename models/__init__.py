@@ -3,7 +3,7 @@
 """
 
 
-from models.engine.file_storage import FileStorage
+from models.engine.file_storage import file_storage
 
 
 storage = FileStorage()
