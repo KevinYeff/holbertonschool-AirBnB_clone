@@ -6,7 +6,9 @@
 
 
 import unittest
-import models.engine
+import models
+
+FileStorage = models.file_storage.FileStorage
 
 
 class TestFileStorage(unittest.TestCase):
@@ -14,15 +16,18 @@ class TestFileStorage(unittest.TestCase):
 
     def test_doc_module(self):
         """Test moduel documentation."""
-        actual = models.engine.__doc__
+        actual = models.file_storage.__doc__
         self.assertIsNotNone(actual)
 
     def test_doc_class(self):
         """Test for class documentation."""
-        actual = models.engine.FileStorage.__doc__
+        actual = FileStorage.__doc__
         self.assertIsNotNone(actual)
 
     def test__file_path(self):
         """Test for class private attribute __file_path."""
-        actual = models.engine.FileStorage.__file_path
+        actual = FileStorage.__file_path
         self.assertIsNone(actual)
+      
+if __name__ == '__main__':
+    unittest.main
