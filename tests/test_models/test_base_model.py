@@ -6,11 +6,25 @@
 
 
 import unittest
-import models
+from models.base_model import BaseModel
 
 
 class TestBaseModelDocs(unittest.TestCase):
     """Class for testing BaseModel docs."""
+
+    def setUp(self):
+        """
+        Setup resources to be used in the tests
+        i) Create a BaseModel object
+        """
+        self.base_model = BaseModel()
+
+    def tearDown(self):
+        """
+        Clean up resources after the tests
+        i) Delete the instance created
+        """
+        del self.base_model
 
     def test_doc_module(self):
         """Test module documentation."""
@@ -34,7 +48,7 @@ class TestBaseModelDocs(unittest.TestCase):
 
     def test_to_dict(self):
         """Test return to_dict."""
-        expect = models.base_model.BaseModel.to_dict()
+        expect = self.BaseModel.to_dict()
         self.assertIs(type(expect), dict)
 
     def test_doc__init__(self):
