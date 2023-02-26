@@ -44,10 +44,6 @@ class FileStorage:
         if os.path.exists(f_in):
             with open(f_in, "r", encoding="utf-8") as f_out:
                 obj_dict = json.load(f_out)
-                objs_loaded = {}
                 for k, v in obj_dict.items():
-                    cls = v["__class__"]
-                    obj_class = models.models_classes[cls]
-                    obj_instance = obj_class(**v)
-                    objs_loaded["{}.{}".format(cls, k)] = obj_instance
-                self.__objects.update(**objs_loaded)
+                    base = models.models_classes[v["__class__"]](**v)
+                    FileStorage.__objects[k] = base
