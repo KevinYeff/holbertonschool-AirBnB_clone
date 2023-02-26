@@ -20,6 +20,7 @@ class FileStorage:
     def all(self):
         """Return the dictionary of the class attribute(__objects).
         """
+        self.reload()
         return (self.__objects)
 
     def new(self, obj):
