@@ -13,6 +13,6 @@ class Review(BaseModel):
     Class that inherits from BaseModel and represent
     a review
     """
-    place_id = "Place.id"
-    user_id = "User.id"
+    place_id = ""
+    user_id = ""
     text = ""
