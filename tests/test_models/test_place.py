@@ -12,9 +12,23 @@ from models.place import Place
 class TestPlace(unittest.TestCase):
     """Test suites for class Place."""
 
+    def setUp(self):
+        """
+        Setup resources to be used in the tests
+        i) Create a Place object
+        """
+        self.place = Place()
+
+    def tearDown(self):
+        """
+        Clean up resources after the tests
+        i) Delete the instance created
+        """
+        del self.place
+
     def test_doc_module(self):
         """Test module documentation."""
-        actual = models.place.__doc__
+        actual = Place.__module__.__doc__
         self.assertIsNotNone(actual)
 
     def test_doc_class(self):
@@ -49,6 +63,7 @@ class TestPlace(unittest.TestCase):
         self.assertTrue(type(self.place.latitude) == float)
         self.assertTrue(type(self.place.longitude) == float)
         self.assertTrue(type(self.place.amenity_ids) == list)
-      
+
+
 if __name__ == '__main__':
     unittest.main
