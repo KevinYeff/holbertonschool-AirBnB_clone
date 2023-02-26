@@ -28,7 +28,7 @@ class TestUser(unittest.TestCase):
 
     def test_doc_module(self):
         """Test module documentation."""
-        actual = models.user.__doc__
+        actual = User.__module__.__doc__
         self.assertIsNotNone(actual)
 
     def test_doc_class(self):
