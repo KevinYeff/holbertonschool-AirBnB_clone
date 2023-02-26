@@ -12,9 +12,23 @@ from models.amenity import Amenity
 class TestAmenity(unittest.TestCase):
     """Test suites for class Amenity."""
 
+    def setUp(self):
+        """
+        Setup resources to be used in the tests
+        i) Create a Amenity object
+        """
+        self.amenity = Amenity()
+
+    def tearDown(self):
+        """
+        Clean up resources after the tests
+        i) Delete the instance created
+        """
+        del self.amenity
+
     def test_doc_module(self):
         """Test module documentation."""
-        actual = models.amenity.__doc__
+        actual = Amenity.__module__.__doc__
         self.assertIsNotNone(actual)
 
     def test_doc_class(self):
@@ -29,6 +43,7 @@ class TestAmenity(unittest.TestCase):
     def test_attributes_type(self):
         """Test that object attributes are the same type."""
         self.assertTrue(type(self.amenity.name) == str)
-      
+
+
 if __name__ == '__main__':
     unittest.main
