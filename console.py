@@ -9,6 +9,7 @@ import cmd
 from models.base_model import BaseModel
 from models.__init__ import storage
 from models.__init__ import models_classes
+from models.user import User
 
 
 class HBNBCommand(cmd.Cmd):
@@ -36,7 +37,7 @@ class HBNBCommand(cmd.Cmd):
         if not arg:
             print("** class name missing **")
         elif args[0] not in models_classes:
-            print("** class doesn't exists **")
+            print("** class doesn't exist **")
         else:
             new_instance = models_classes[args[0]]()
             new_instance.save()
@@ -50,7 +51,7 @@ class HBNBCommand(cmd.Cmd):
         if len(args) == 0:
             print("** class name missing **")
         elif args[0] not in models_classes:
-            print("** class doesn't exists **")
+            print("** class doesn't exist **")
         elif len(args) == 1:
             print("** instance id missing **")
         else:
@@ -69,10 +70,9 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
 
         elif args[0] not in models_classes:
-            print("** class doesn't exists **")
-
+            print("** class doesn't exist **")
         elif len(args) == 1:
-            print("** instance id is missing **")
+            print("** instance id missing **")
         else:
             key = args[0] + "." + args[1]
             instances = storage.all()
