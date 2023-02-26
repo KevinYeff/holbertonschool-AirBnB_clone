@@ -12,9 +12,23 @@ from models.state import State
 class TestState(unittest.TestCase):
     """Test suites for class State."""
 
+    def setUp(self):
+        """
+        Setup resources to be used in the tests
+        i) Create a State object
+        """
+        self.state = State()
+
+    def tearDown(self):
+        """
+        Clean up resources after the tests
+        i) Delete the instance created
+        """
+        del self.state
+
     def test_doc_module(self):
         """Test module documentation."""
-        actual = models.state.__doc__
+        actual = State.__module__.__doc__
         self.assertIsNotNone(actual)
 
     def test_doc_class(self):
