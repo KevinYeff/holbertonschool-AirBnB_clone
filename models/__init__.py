@@ -8,7 +8,8 @@ from models.base_model import BaseModel
 
 
 models_classes = {
-    "BaseModel": BaseModel
+    "BaseModel": BaseModel,
+    "User": User
 }
 
 storage = FileStorage()
