@@ -9,8 +9,22 @@ import unittest
 from models.user import User
 
 
-class TestUserModel(unittest.TestCase):
+class TestUser(unittest.TestCase):
     """Test suites for class User."""
+
+    def setUp(self):
+        """
+        Setup resources to be used in the tests
+        i) Create a User object
+        """
+        self.user = User()
+
+    def tearDown(self):
+        """
+        Clean up resources after the tests
+        i) Delete the instance created
+        """
+        del self.user
 
     def test_doc_module(self):
         """Test module documentation."""
@@ -29,7 +43,7 @@ class TestUserModel(unittest.TestCase):
         self.assertTrue(hasattr(self.user, "first_name"))
         self.assertTrue(hasattr(self.user, "last_name"))
 
-    def test_attributes(self):
+    def test_attributes_type(self):
         """Test that object attributes are the same type."""
         self.assertTrue(type(self.user.email) == str)
         self.assertTrue(type(self.user.password) == str)
