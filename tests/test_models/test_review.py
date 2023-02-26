@@ -12,9 +12,23 @@ from models.review import Review
 class TestReview(unittest.TestCase):
     """Test suites for class Review."""
 
+    def setUp(self):
+        """
+        Setup resources to be used in the tests
+        i) Create a Review object
+        """
+        self.review = Review()
+
+    def tearDown(self):
+        """
+        Clean up resources after the tests
+        i) Delete the instance created
+        """
+        del self.review
+
     def test_doc_module(self):
         """Test module documentation."""
-        actual = models.review.__doc__
+        actual = Review.__module__.__doc__
         self.assertIsNotNone(actual)
 
     def test_doc_class(self):
