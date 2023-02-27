@@ -30,14 +30,24 @@ class TestBaseModel(unittest.TestCase):
         """Test to ascertain that no two objects have the same ID"""
         self.assertNotEqual(self.base1.id, self.base2.id)
 
+    def test_doc_module(self):
+        """Test moduel documentation."""
+        actual = md.base_model.__doc__
+        self.assertIsNotNone(actual)
+
+    def test_doc_class(self):
+        """Test for class documentation."""
+        actual = md.base_model.BaseModel.__doc__
+        self.assertIsNotNone(actual)
+
     def test_kwargs_init(self):
         """Test Kwargs initialization"""
         kwargs = {
-             "__class__": "BaseModel",
-             "created_at": "2023-02-10T19:52:36.252305",
-             "id": "83b3c8a8-b72b-1337-9d80-c52b2e090f04",
-             "updated_at": "2022-02-11T19:52:36.252312"
-            }
+            "__class__": "BaseModel",
+            "created_at": "2023-02-10T19:52:36.252305",
+            "id": "83b3c8a8-b72b-1337-9d80-c52b2e090f04",
+            "updated_at": "2022-02-11T19:52:36.252312"
+        }
         new_base = md.base_model.BaseModel(**kwargs)
         self.assertEqual(new_base.created_at.isoformat(), kwargs['created_at'])
         self.assertEqual(new_base.id, kwargs['id'])
