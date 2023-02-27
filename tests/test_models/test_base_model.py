@@ -2,7 +2,7 @@
 # test_base_model.py
 # Alex Nuñez <5694@holbertonstudents.com>
 # Yeff Espinoza <5153@holbertonstudents.com>
-# Created  by: Ebenezer R.
+
 """
 Tests Suites for the base model
 """
@@ -63,6 +63,13 @@ class TestBaseModel(unittest.TestCase):
         self.assertIn("created_at", base1_string)
         self.assertIn("updated_at", base1_string)
         self.assertIn("[BaseModel]", base1_string)
+
+    def test_save(self):
+        b = BaseModel()
+        self.assertIsNone(b.updated_at)
+        b.save()
+        self.assertIsNotNone(b.updated_at)
+        self.assertIsInstance(b.updated_at, datetime)
 
     def test_to_dict_method(self):
         """Test return value of the the to_dict method of BaseModel class"""
