@@ -28,22 +28,22 @@ class TestBaseModelDocs(unittest.TestCase):
 
     def test_doc_module(self):
         """Test module documentation."""
-        actual = models.base_model.__doc__
+        actual = BaseModel.__module__.__doc__
         self.assertIsNotNone(actual)
 
     def test_doc_class(self):
         """Test class documentation."""
-        actual = models.base_model.BaseModel.__doc__
+        actual = BaseModel.__doc__
         self.assertIsNotNone(actual)
 
     def test_doc_save(self):
         """Test method save documentation."""
-        actual = models.base_model.BaseModel.save.__doc__
+        actual = BaseModel.save.__doc__
         self.assertIsNotNone(actual)
 
     def test_doc_to_dict(self):
         """Test method to_dict documentation."""
-        actual = models.base_model.BaseModel.to_dict.__doc__
+        actual = BaseModel.to_dict.__doc__
         self.assertIsNotNone(actual)
 
     def test_to_dict(self):
