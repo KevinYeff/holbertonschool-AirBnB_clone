@@ -40,6 +40,21 @@ class TestFileStorage(unittest.TestCase):
         del self.storage
         del self.base
 
+    def test_doc_module(self):
+        """Test moduel documentation."""
+        actual = models.file_storage.__doc__
+        self.assertIsNotNone(actual)
+
+    def test_doc_class(self):
+        """Test for class documentation."""
+        actual = FileStorage.__doc__
+        self.assertIsNotNone(actual)
+
+    def test__file_path(self):
+        """Test for class private attribute __file_path."""
+        actual = FileStorage.__file_path
+        self.assertIsNone(actual)
+
     def test_attributes(self):
         """Test the attributes of objects"""
         self.assertTrue(hasattr(self.base, "created_at"))
