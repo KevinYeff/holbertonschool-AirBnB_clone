@@ -6,8 +6,6 @@ footer {
     bottom: 0;
     position: absolute;
     display: grid;
-}
-
-footer p {
     text-align: center;
+    align-content: center;
 }
